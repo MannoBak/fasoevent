@@ -8,21 +8,23 @@
           <div class="col-lg-7 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
               <div class="brand-logo">
+              <a href="{{ route('acceuil')}}">
                 <img src="{{ asset('assets_private/images/logo.svg') }}" alt="logo">
-              </div>
+              </a>
+             </div>
               <h4>Option d'inscription</h4>
               <h6 class="font-weight-light">Veuillez choisir une option d'inscription</h6>
               <form class="pt-3">
             
                 <div class="mt-3">
-                  <a class="btn btn-block btn-primary w-100 text-white btn-lg font-weight-medium auth-form-btn" href="../../index.html">Inscription promoteur</a>
+                  <a class="btn btn-block btn-primary w-100 text-white btn-lg font-weight-medium auth-form-btn" href="{{ route('public.inscription-promoteur') }}">Inscription promoteur</a>
                 </div>
                 <div class="mt-3">
-                  <a class="btn btn-block btn-primary w-100 text-white btn-lg font-weight-medium auth-form-btn" href="../../index.html">Inscription Abonné</a>
+                  <a class="btn btn-block btn-primary w-100 text-white btn-lg font-weight-medium auth-form-btn" href="{{ route('public.inscription-abonne') }}">Inscription Abonné</a>
                 </div>
 
-                <div class="mt-3">
-                  <a class="btn btn-block btn-primary w-100 text-white btn-lg font-weight-medium auth-form-btn" href="../../index.html">Connexion</a>
+                <div class="mt-3" >
+                  <a class="btn btn-block btn-primary w-100 text-white btn-lg font-weight-medium auth-form-btn" href="{{ route('public.connexion') }}">Connexion</a>
                 </div>
               </form>
             </div>
