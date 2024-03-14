@@ -1,0 +1,13 @@
+--------- Mise d'un site en local ------
+
+1-Creer un point d'acces avec mon portable(Activer son point d'acces du telephone)
+
+2- Connecter mon PC avec mon telephone(Creation d'un réseau)
+
+3- Chercher l'adresse ip de mon PC
+    -Windows : ipconfig :  192.168.43.37 
+    -Linux : ifconfig
+
+4- Ouvrir votre app Laravel et taper la commande suivante : php artisan serve --host=0.0.0.0 --port=8001
+
+5-Ouvir un navigateur sur mon portable(celui ayant creer le point d'accès) et taper :  192.168.43.37:8001
