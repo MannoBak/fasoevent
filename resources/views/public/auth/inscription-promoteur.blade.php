@@ -118,8 +118,8 @@
                 <div class="mb-4">
                   <div class="form-check">
                     <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input">
-                      J'accepte les conditions d'insciption
+                      <input type="checkbox" required class="form-check-input">
+                      J'accepte les conditions d'inscription
                     </label>
                   </div>
                 </div>
