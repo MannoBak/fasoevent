@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -128,5 +129,64 @@ class AuthController extends Controller
 
     public function connexion(){
         return view('public.auth.connexion');
+    }
+
+    public function connexionAction(Request $request)
+    {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'email' => 'required|email',
+                'password' => 'required',
+            ],
+            [
+                'email.required' => 'Le champ email est requis.',
+                'email.email' => 'Veuillez entrer une adresse email valide.',
+                'password.required' => 'Le champ mot de passe est requis.',
+            ]
+        );
+
+        //On retourne toutes les erreurs
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        
+
+        // Vérifier si un utilisateur avec cet email existe
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return redirect()->back()
+                ->withErrors(['login' => "Cet email n'a pas de compte"])
+                ->withInput();
+        }
+
+        //On le connecte ici
+        if (!Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
+            return redirect()->back()
+                ->withErrors(['login' => 'Mot de passe est incorrect'])
+                ->withInput();
+        }
+
+        $request->session()->regenerate();
+
+        //On voie sur quel page on dois le redirigé
+        $user = Auth::user();
+        $redirectRoute = '';
+
+        if ($user->role == 'admin') {
+            $redirectRoute = 'private.admintableaudebord';
+        } elseif ($user->role == 'promoteur') {
+            $redirectRoute = 'private.promoteurtableaudebord';
+        } elseif ($user->role == 'abonne') {
+            $redirectRoute = 'private.abonnetableaudebord';
+        }
+
+        if (!empty($redirectRoute)) {
+            return redirect()->route($redirectRoute)->withMessage("Connexion réussie !");
+        }
     }
 }
