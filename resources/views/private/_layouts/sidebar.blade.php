@@ -1,5 +1,6 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
 <!-- Admin -->
+          @if(auth()->user()->role=='admin')
           <ul class="nav">
             <li class="nav-item">
               <a class="nav-link" href="index.html">
@@ -34,9 +35,11 @@
               </a>
             </li>
           </ul>
+          @endif
 <!-- Fin admin -->
 
 <!-- Promoteur -->
+        @if(auth()->user()->role=='promoteur')
           <ul class="nav">
             <li class="nav-item">
               <a class="nav-link" href="index.html">
@@ -72,9 +75,11 @@
               </a>
             </li>
           </ul>
+          @endif
          <!-- Fin promoteur  -->
 
          <!-- Abonné -->
+         @if(auth()->user()->role=='abonne')
           <ul class="nav">
             <li class="nav-item">
               <a class="nav-link" href="index.html">
@@ -103,5 +108,6 @@
               </a>
             </li>
           </ul>
+          @endif
           <!-- Fin Abonné -->
         </nav>

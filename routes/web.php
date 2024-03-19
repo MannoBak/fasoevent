@@ -22,12 +22,19 @@ use Illuminate\Support\Facades\Route;
 
 #Public routes
 Route::get('/', [AcceuilController::class, 'index'])->name('acceuil');
+Route::post('/deconnexion', [AuthController::class, 'deconnexion'])->name('deconnexion');
 Route::get('/evenements', [EvenementController::class, 'index'])->name('public.evenements');
 
 #Private routes
-Route::get('/admin-tableau-de-bord', [AdminTableaudebordController::class, 'adminTableaudebord'])->name('private.admintableaudebord');
-Route::get('/promoteur-tableau-de-bord', [PromoteurTableaudebordController::class, 'promoteurTableaudebord'])->name('private.promoteurtableaudebord');
-Route::get('/abonne-tableau-de-bord', [AbonneTableaudebordController::class, 'abonneTableaudebord'])->name('private.abonnetableaudebord');
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin-tableau-de-bord', [AdminTableaudebordController::class, 'adminTableaudebord'])->name('private.admintableaudebord');
+});
+Route::middleware(['auth', 'role:promoteur'])->group(function () {
+    Route::get('/promoteur-tableau-de-bord', [PromoteurTableaudebordController::class, 'promoteurTableaudebord'])->name('private.promoteurtableaudebord');
+});
+Route::middleware(['auth', 'role:abonne'])->group(function () {
+    Route::get('/abonne-tableau-de-bord', [AbonneTableaudebordController::class, 'abonneTableaudebord'])->name('private.abonnetableaudebord');
+});
 
 #Auth routes
 Route::get('/inscription-option', [AuthController::class, 'inscriptionOption'])->name('public.inscription-option');

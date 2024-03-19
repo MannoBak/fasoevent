@@ -63,11 +63,24 @@
         </div>
 
         <div class="cta d-none d-md-flex align-items-center gap-2">
-          <a href="{{ route('public.connexion') }}" class="scrollto">Connexion</a>
-          <a href="{{ route('public.inscription-option') }}" class="scrollto">Inscription</a>
+          
+          @auth      
           <a href="{{ route('private.admintableaudebord') }}" class="scrollto">Mon compte A</a>
           <a href="{{ route('private.promoteurtableaudebord') }}" class="scrollto">Mon compte P</a>
           <a href="{{ route('private.abonnetableaudebord') }}" class="scrollto">Mon compte Ab</a>
+          <a class="scrollto" style="cursor:pointer" onclick="event.preventDefault(); 
+                document.getElementById('logout-form').submit();">
+                  Déconnexion
+           </a>
+                <form id="logout-form" action="{{ route('deconnexion') }}" method="POST">
+                  @csrf
+                </form>
+           @else
+          <a href="{{ route('public.inscription-option') }}" class="scrollto">Inscription</a>
+          <a href="{{ route('public.connexion') }}" class="scrollto">Connexion</a>
+        
+          @endauth
+          
         </div>
       </div>
     </section>
