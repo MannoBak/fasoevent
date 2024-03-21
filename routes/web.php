@@ -6,6 +6,7 @@ use App\Http\Controllers\private\admin\AdminTableaudebordController;
 use App\Http\Controllers\private\promoteur\PromoteurTableaudebordController;
 use App\Http\Controllers\public\AcceuilController;
 use App\Http\Controllers\public\AuthController;
+use App\Http\Controllers\private\ProfilController;
 use App\Http\Controllers\public\EvenementController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,3 +46,5 @@ Route::get('/inscription-abonne', [AuthController::class, 'inscriptionAbonne'])-
 Route::get('/connexion', [AuthController::class, 'connexion'])->name('public.connexion');
 Route::post('/connexion-action', [AuthController::class, 'connexionAction'])->name('public.connexion-action');
 
+#Profil
+Route::get('/profil', [ProfilController::class, 'index'])->name('private.profil-index');
