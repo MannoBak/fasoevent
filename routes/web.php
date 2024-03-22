@@ -57,8 +57,8 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('/index', [ProfilController::class, 'index'])->name('private.profil-index');
         Route::put('/edition-profil', [ProfilController::class, 'editProfilAction'])->name('private.profil-edition');
-        Route::put('/edition-password', [ProfilController::class, 'editPasswordAction'])->name('private.profil-password');
-        Route::put('/edition-image', [ProfilController::class, 'editImageAction'])->name('private.profil-image');
+        Route::put('/edition-password', [ProfilController::class, 'editPasswordAction'])->name('private.edit-password');
+        Route::put('/edition-image', [ProfilController::class, 'editImageAction'])->name('private.edit-image');
     });
 
 
