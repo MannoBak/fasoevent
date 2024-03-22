@@ -27,15 +27,7 @@ Route::post('/deconnexion', [AuthController::class, 'deconnexion'])->name('decon
 Route::get('/evenements', [EvenementController::class, 'index'])->name('public.evenements');
 
 #Private routes
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin-tableau-de-bord', [AdminTableaudebordController::class, 'adminTableaudebord'])->name('private.admintableaudebord');
-});
-Route::middleware(['auth', 'role:promoteur'])->group(function () {
-    Route::get('/promoteur-tableau-de-bord', [PromoteurTableaudebordController::class, 'promoteurTableaudebord'])->name('private.promoteurtableaudebord');
-});
-Route::middleware(['auth', 'role:abonne'])->group(function () {
-    Route::get('/abonne-tableau-de-bord', [AbonneTableaudebordController::class, 'abonneTableaudebord'])->name('private.abonnetableaudebord');
-});
+
 
 #Auth routes
 Route::get('/inscription-option', [AuthController::class, 'inscriptionOption'])->name('public.inscription-option');
@@ -47,4 +39,28 @@ Route::get('/connexion', [AuthController::class, 'connexion'])->name('public.con
 Route::post('/connexion-action', [AuthController::class, 'connexionAction'])->name('public.connexion-action');
 
 #Profil
-Route::get('/profil', [ProfilController::class, 'index'])->name('private.profil-index');
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::middleware(['role:admin'])->group(function () {
+        Route::get('/admin-tableau-de-bord', [AdminTableaudebordController::class, 'adminTableaudebord'])->name('private.admintableaudebord');
+    });
+
+    Route::middleware(['role:promoteur'])->group(function () {
+        Route::get('/promoteur-tableau-de-bord', [PromoteurTableaudebordController::class, 'promoteurTableaudebord'])->name('private.promoteurtableaudebord');
+    });
+    Route::middleware(['role:abonne'])->group(function () {
+        Route::get('/abonne-tableau-de-bord', [AbonneTableaudebordController::class, 'abonneTableaudebord'])->name('private.abonnetableaudebord');
+    });
+
+    Route::prefix('/profil')->group(function(){
+
+        Route::get('/index', [ProfilController::class, 'index'])->name('private.profil-index');
+        Route::put('/edition-profil', [ProfilController::class, 'editProfilAction'])->name('private.profil-edition');
+        Route::put('/edition-password', [ProfilController::class, 'editPasswordAction'])->name('private.profil-password');
+        Route::put('/edition-image', [ProfilController::class, 'editImageAction'])->name('private.profil-image');
+    });
+
+
+
+});

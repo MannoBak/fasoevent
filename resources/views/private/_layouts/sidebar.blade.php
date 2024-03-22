@@ -3,7 +3,7 @@
           @if(auth()->user()->role=='admin')
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{ route('private.admintableaudebord')}}">
                 <i class="mdi mdi-home menu-icon"></i>
                 <span class="menu-title">Tableau de bord A</span>
               </a>
@@ -42,9 +42,9 @@
         @if(auth()->user()->role=='promoteur')
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{ route('private.promoteurtableaudebord')}}">
                 <i class="mdi mdi-home menu-icon"></i>
-                <span class="menu-title">Tableau de bord P</span>
+                <span class="menu-title">Tableau de bord</span>
               </a>
             </li>
 
@@ -71,7 +71,7 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ route('private.profil-index') }}">
                 <i class="mdi mdi-account-box-outline menu-icon"></i>
-                <span class="menu-title">Profil P</span>
+                <span class="menu-title">Profil</span>
               </a>
             </li>
           </ul>
@@ -82,9 +82,9 @@
          @if(auth()->user()->role=='abonne')
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{ route('private.abonnetableaudebord')}}">
                 <i class="mdi mdi-home menu-icon"></i>
-                <span class="menu-title">Tableau de bord Ab</span>
+                <span class="menu-title">Tableau de bord</span>
               </a>
             </li>
 
