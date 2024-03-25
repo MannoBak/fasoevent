@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
                 'telephone' => '76980689',
                 'remember_token' => Str::random(10),
                 'role' => 'admin',
-                'photo' => 'storage/img/admin-2.png',
+                'photo' => '/img/admin-2.png',
             ]
         );
 
@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
                 'password' => 'password',
                 'telephone' => '75987689',
                 'remember_token' => Str::random(10),
-                'photo' => 'storage/img/adminw.png',
+                'photo' => '/img/adminw.png',
             ]
         );
 
@@ -52,7 +52,7 @@ class UserSeeder extends Seeder
                 'password' => 'password',
                 'telephone' => '70987689',
                 'remember_token' => Str::random(10),
-                'photo' => 'storage/img/admin.png',
+                'photo' => '/img/admin.png',
                 'role' => 'admin',
             ]
         );
@@ -67,7 +67,7 @@ class UserSeeder extends Seeder
                 'telephone' => '70987689',
                 'remember_token' => Str::random(10),
                 'role' => 'admin',
-                'photo' => 'storage/img/admin.png',
+                'photo' => '/img/admin.png',
 
             ]
         );
@@ -88,7 +88,7 @@ class UserSeeder extends Seeder
                 'activites' => 'Concert, Cinema',
                 'role' => 'promoteur',
                 'status' => 'accepter',
-                'photo' => 'storage/img/promot-1.jpg',
+                'photo' => '/img/promot-1.jpg',
 
             ]
         );
@@ -105,7 +105,7 @@ class UserSeeder extends Seeder
                 'activites' => 'Concert',
                 'role' => 'promoteur',
                 'status' => 'accepter',
-                'photo' => 'storage/img/promot-2.jpg',
+                'photo' => '/img/promot-2.jpg',
 
             ]
         );
@@ -122,7 +122,7 @@ class UserSeeder extends Seeder
                 'activites' => 'Cinema, Foire, Danse',
                 'role' => 'promoteur',
                 'status' => 'accepter',
-                'photo' => 'storage/img/promot-3.png',
+                'photo' => '/img/promot-3.png',
 
             ]
         );
@@ -139,7 +139,7 @@ class UserSeeder extends Seeder
                 'activites' => 'Cinema, Concert, Danse',
                 'role' => 'promoteur',
                 'status' => 'accepter',
-                'photo' => 'storage/img/promot-4.jpg',
+                'photo' => '/img/promot-4.jpg',
 
             ]
         );
@@ -156,7 +156,7 @@ class UserSeeder extends Seeder
                 'activites' => 'Danse',
                 'role' => 'promoteur',
                 'status' => 'en_attente',
-                'photo' => 'storage/img/promot-5.jpg',
+                'photo' => '/img/promot-5.jpg',
 
             ]
         );
@@ -173,7 +173,7 @@ class UserSeeder extends Seeder
                 'activites' => 'Danse, Fête',
                 'role' => 'promoteur',
                 'status' => 'en_attente',
-                'photo' => 'storage/img/promot-6.jpg',
+                'photo' => '/img/promot-6.jpg',
 
             ]
         );
@@ -190,7 +190,7 @@ class UserSeeder extends Seeder
                 'activites' => 'Concert, Danse, Shop, Fete',
                 'role' => 'promoteur',
                 'status' => 'rejeter',
-                'photo' => 'storage/img/promot-7.jpg',
+                'photo' => '/img/promot-7.jpg',
 
             ]
         );
@@ -210,7 +210,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'preferences' => 'Concert, Danse',
                 'role' => 'abonne',
-                'photo' => 'storage/img/abonne.jpg',
+                'photo' => '/img/abonne.jpg',
 
             ]
         );
@@ -226,7 +226,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'preferences' => 'Concert, Danse, Shop, Fete',
                 'role' => 'abonne',
-                'photo' => 'storage/img/abonne-1.png',
+                'photo' => '/img/abonne-1.png',
 
             ]
         );
@@ -242,7 +242,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'preferences' => 'Concert, Danse, Shop',
                 'role' => 'abonne',
-                'photo' => 'storage/img/abonne-2.jpeg',
+                'photo' => '/img/abonne-2.jpeg',
 
             ]
         );
@@ -258,7 +258,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'preferences' => 'Concert, Shop, Fete',
                 'role' => 'abonne',
-                'photo' => 'storage/img/abonne-3.jpg',
+                'photo' => '/img/abonne-3.jpg',
 
             ]
         );
@@ -274,7 +274,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'preferences' => 'Danse',
                 'role' => 'abonne',
-                'photo' => 'storage/img/abonne-4.png',
+                'photo' => '/img/abonne-4.png',
 
             ]
         );
@@ -289,7 +289,7 @@ class UserSeeder extends Seeder
                 'telephone' => '55907689',
                 'remember_token' => Str::random(10),
                 'preferences' => 'Concert, Danse',
-                'photo' => 'storage/img/abonne-5.jpg',
+                'photo' => '/img/abonne-5.jpg',
                 'role' => 'abonne',
             ]
         );
@@ -305,7 +305,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'preferences' => 'Concert, Danse, Shop, Fete',
                 'role' => 'abonne',
-                'photo' => 'storage/img/abonne-6.png',
+                'photo' => '/img/abonne-6.png',
 
             ]
         );
@@ -321,7 +321,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'preferences' => 'Concert, Danse, Shop, Fete',
                 'role' => 'abonne',
-                'photo' => 'storage/img/abonne-7.png',
+                'photo' => '/img/abonne-7.png',
 
             ]
         );
@@ -337,7 +337,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'preferences' => 'Concert, Danse, Foire',
                 'role' => 'abonne',
-                'photo' => 'storage/img/abonne-8.png',
+                'photo' => '/img/abonne-8.png',
 
             ]
         );
@@ -353,7 +353,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'preferences' => 'Concert, Danse, Foire',
                 'role' => 'abonne',
-                'photo' => 'storage/img/abonne-9.png',
+                'photo' => '/img/abonne-9.png',
 
             ]
         );
@@ -369,7 +369,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'preferences' => 'Concert',
                 'role' => 'abonne',
-                'photo' => 'storage/img/abonne-10.png',
+                'photo' => '/img/abonne-10.png',
 
             ]
         );
@@ -385,7 +385,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'preferences' => 'Concert, Danse',
                 'role' => 'abonne',
-                'photo' => 'storage/img/abonne-11.png',
+                'photo' => '/img/abonne-11.png',
 
             ]
         );
@@ -401,7 +401,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'preferences' => 'Concert, Danse',
                 'role' => 'abonne',
-                'photo' => 'storage/img/abonne-12.jpg',
+                'photo' => '/img/abonne-12.jpg',
 
             ]
         );
@@ -417,7 +417,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'preferences' => 'Concert, Danse',
                 'role' => 'abonne',
-                'photo' => 'storage/img/abonne-13.jpg',
+                'photo' => '/img/abonne-13.jpg',
 
             ]
         );
@@ -433,7 +433,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'preferences' => 'Concert, Danse',
                 'role' => 'abonne',
-                'photo' => 'storage/img/abonne-14.jpg',
+                'photo' => '/img/abonne-14.jpg',
 
             ]
         );
@@ -449,7 +449,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'preferences' => 'Concert, Danse',
                 'role' => 'abonne',
-                'photo' => 'storage/img/abonne-15.png',
+                'photo' => '/img/abonne-15.png',
 
             ]
         );
@@ -465,7 +465,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'preferences' => 'Concert, Danse',
                 'role' => 'abonne',
-                'photo' => 'storage/img/abonne-16.jpg',
+                'photo' => '/img/abonne-16.jpg',
 
             ]
         );
