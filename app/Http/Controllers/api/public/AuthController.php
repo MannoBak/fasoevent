@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -154,5 +155,58 @@ class AuthController extends Controller
                 'message' => $th->getMessage()
             ], 500);
         }
+    }
+
+    public function connexion(Request $request){
+        try {
+            $validate = Validator::make($request->all(), [
+                'email' => 'required|string|email',
+                'password' => 'required|string'
+            ]);
+
+            if ($validate->fails()) {
+                return response()->json([
+                    'status' => 'failed',
+                    'message' => 'Erreur de validation du formulaire!',
+                    'data' => $validate->errors(),
+                ], 422);
+            }
+            
+            // On verifie si l'email existe ou les donné ne sont pas correct
+            $user = User::where('email', $request->email)->first();
+            if (!$user || !Hash::check($request->password, $user->password)) {
+                return response()->json([
+                    'status' => 'failed',
+                    'message' => 'Email ou mot de passe incorrect !'
+                ], 401);
+            }
+
+            $data['token'] = $user->createToken($request->email)->plainTextToken;
+            $data['user'] = $user;
+
+            $response = [
+                'status' => 'success',
+                'message' => 'Connexion reussis !!!.',
+                'data' => $data,
+            ];
+
+            return response()->json($response, 200);
+
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => 'Failed',
+                'message' => $th->getMessage()
+            ], 500);
+        }
+    }
+
+    //Deconnection
+    public function deconnection(Request $request)
+    {
+        auth()->user()->tokens()->delete();
+        return response()->json([
+            'status' => 'success',
+            'message' => "Vous etes deconnecté avec succès !"
+        ], 200);
     }
 }

@@ -22,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/inscription-promoteur', [AuthController::class, 'inscriptionPromoteur']);
 
 Route::post('/inscription-abonne', [AuthController::class, 'inscriptionAbonne']);
+Route::post('/connexion', [AuthController::class, 'connexion']);
+Route::post('/deconnexion', [AuthController::class, 'deconnexion']);
