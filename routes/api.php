@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\public\AuthController;
 use App\Http\Controllers\api\private\admin\ActiviteController;
+use App\Http\Controllers\api\private\admin\EvenementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,9 @@ Route::post('/connexion', [AuthController::class, 'connexion']);
 Route::post('/deconnexion', [AuthController::class, 'deconnexion']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::ApiResource('activites', ActiviteController::class);
+    Route::middleware(['role:admin'])->group(function () {
+        Route::ApiResource('activites',ActiviteController::class);
+        Route::ApiResource('evenements',EvenementController::class);
+    });
 
 });

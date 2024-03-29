@@ -82,7 +82,29 @@ class ActiviteController extends Controller
      */
     public function show(string $id)
     {
-        //
+        try {
+            // Récupérer l'activité spécifiée par son ID
+            $activite = Activite::find($id);
+
+            if (is_null($activite)) {
+                return response()->json([
+                    'status' => 'failed',
+                    'message' => "Domaine d'activité introuvable",
+                ], 404);
+            }
+
+            $data['activite'] = $activite;
+
+            return response()->json([
+                'status' => 'success',
+                'data' => $data
+            ], 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Erreur serveur ! ' . $th->getMessage()
+            ], 500);
+        }
     }
 
     /**
@@ -90,7 +112,7 @@ class ActiviteController extends Controller
      */
     public function edit(string $id)
     {
-        //
+
     }
 
     /**
@@ -98,7 +120,43 @@ class ActiviteController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            $validate = Validator::make($request->all(), [
+                'nom' => 'required|string'
+            ]);
+
+            if ($validate->fails()) {
+                return response()->json([
+                    'status' => 'failed',
+                    'message' => 'Erreur de validation du formulaire!',
+                    'data' => $validate->errors(),
+                ], 422);
+            }
+
+            $activite = Activite::find($id);
+
+            if (is_null($activite)) {
+                return response()->json([
+                    'status' => 'failed',
+                    'message' => "Domaine d'activité introuvable",
+                ], 404);
+            }
+
+            $activite->update($request->all());
+
+            $response = [
+                'status' => 'success',
+                'message' => 'Product is updated successfully.',
+                'data' => $this->activites(),
+            ];
+
+            return response()->json($response, 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Erreur serveur ! ' . $th->getMessage()
+            ], 500);
+        }
     }
 
     /**
@@ -106,6 +164,36 @@ class ActiviteController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            // Récupérer l'activité spécifiée par son ID
+            $activite = Activite::find($id);
+
+            if (is_null($activite)) {
+                return response()->json([
+                    'status' => 'failed',
+                    'message' => "Domaine d'activité introuvable",
+                ], 404);
+            }
+
+            Activite::destroy($id);
+            return response()->json([
+                'status' => 'success',
+                'message' => "Domain d'activité supprimé avec succès.",
+                'data' => $this->activites()
+            ], 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Erreur serveur ! ' . $th->getMessage()
+            ], 500);
+        }
+    }
+
+    public function activites()
+    {
+        $domaine_activites = Activite::orderBy('created_at', 'desc')->get();
+        // $domaine_activites = DB::select('SELECT * FROM activites ORDER BY created_at DESC');
+
+        return $domaine_activites;
     }
 }

@@ -12,4 +12,8 @@ class Activite extends Model
     protected $fillable= [
         'nom',
     ];
+
+    public function evenements(){
+        return $this->hasMany(Evenement::class);
+    }
 }
