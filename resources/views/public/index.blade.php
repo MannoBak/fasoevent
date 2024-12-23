@@ -19,7 +19,7 @@
               </p>
               <div class="text-center">
                 <a href="#" class="more-btn"
-                  >Learn More <i class="bx bx-chevron-right"></i
+                  >Voir plus <i class="bx bx-chevron-right"></i
                 ></a>
               </div>
             </div>
@@ -48,7 +48,7 @@
                 >
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-cube-alt"></i>
-                    <h4>Explorez la Scène Culturelle Local</h4>
+                    <h4>Explorez la Scène Culturelle Locale</h4>
                     <p>
                       Découvrez et soutenez les talents locaux. Notre
                       plateforme met en avant la diversité culturelle du
@@ -63,7 +63,7 @@
                 >
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-images"></i>
-                    <h4>Restez informé avec les Notifications</h4>
+                    <h4>Restez informer avec les Notifications</h4>
                     <p>
                       Abonnez-vous pour recevoir des alertes sur les
                       évènements à venir dans votre ville
@@ -97,7 +97,7 @@
           >
             <h4 data-aos="fade-up">About us</h4>
             <h3 data-aos="fade-up">
-              Enim quis est voluptatibus aliquid consequatur fugiat
+              Jeune développeur passionné de l'inovation
             </h3>
             <p data-aos="fade-up">
               Esse voluptas cumque vel exercitationem. Reiciendis est hic
@@ -190,7 +190,7 @@
                   enrichir la scène culturelle.
                 </p>
                 <div class="read-more">
-                  <a href="#"><i class="bi bi-arrow-right"></i> Read More</a>
+                  <a href="#"><i class="bi bi-arrow-right"></i> Lire plus</a>
                 </div>
               </div>
             </div>

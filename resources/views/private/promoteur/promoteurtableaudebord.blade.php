@@ -53,7 +53,7 @@
                           role="tab"
                           aria-controls="sales"
                           aria-selected="false"
-                          >Cathégories</a
+                          >Catégories</a
                         >
                       </li>
                       <li class="nav-item">
